@@ -1,0 +1,192 @@
+%TRAINING DATASET GENERATION
+x=0:0.01:7;
+
+ph = 2*pi*rand;
+y = sin(3*x + ph);
+outpure = y;
+outnoisy = awgn(y,15);
+
+%frequency=3, low noise
+for i=1:299
+    ph = 2*pi*rand;
+    y = sin(3*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,15)];
+end
+
+%frequency=3, medium noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(3*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,7)];
+end
+
+%frequency=3, harsh noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(3*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,1)];
+end
+
+%f=5 
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(5*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,13)];
+end
+
+%frequency=5, medium noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(5*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,5)];
+end
+
+%frequency=5, harsh noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(5*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,0.5)];
+end
+
+%frequency=8, low noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(8*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,13)];
+end
+
+%frequency=8, medium noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(8*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,5)];
+end
+
+%frequency=8, harsh noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(8*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,0.5)];
+end
+
+%frequency=12, low noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(12*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,13)];
+end
+
+%frequency=12, medium noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(12*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,5)];
+end
+
+%frequency=12, harsh noise
+for i=1:300
+    ph = 2*pi*rand;
+    y = sin(12*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,0.5)];
+end
+
+
+xlswrite('pure.xlsx',outpure);
+xlswrite('noisy.xlsx',outnoisy);
+
+
+%TESTING DATASET GENERATION
+x=0:0.01:7;
+
+ph = 2*pi*rand;
+y = sin(5*x + ph);
+outpure = y;
+outnoisy = awgn(y,13);
+
+%frequency=5, low noise
+for i=1:99
+    ph = 2*pi*rand;
+    y = sin(5*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,1)];
+end
+
+%frequency=5, medium noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(5*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,5)];
+end
+
+%frequency=5, harsh noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(5*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,0.5)];
+end
+
+%frequency=8, low noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(8*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,1)];
+end
+
+%frequency=8, medium noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(8*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,5)];
+end
+
+%frequency=8, harsh noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(8*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,0.5)];
+end
+
+%frequency=12, low noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(12*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,1)];
+end
+
+%frequency=12, medium noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(12*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,5)];
+end
+
+%frequency=12, harsh noise
+for i=1:100
+    ph = 2*pi*rand;
+    y = sin(12*x + ph);
+    outpure = [outpure;y];
+    outnoisy = [outnoisy;awgn(y,0.5)];
+end
+
+
+xlswrite('test_pure.xlsx',outpure);
+xlswrite('test_noisy.xlsx',outnoisy);
